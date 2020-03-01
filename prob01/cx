@@ -1,0 +1,18 @@
+#!/bin/bash
+
+FILENAME=$1
+
+if [ "$FILENAME" != "" ]; then
+
+	rm -f $FILENAME
+	rm -f $FILENAME.o
+
+	if gcc $FILENAME.c -o $FILENAME; then
+		./$FILENAME
+	else
+		echo "COMPILATION ERROR";
+	fi
+else
+	echo "Error: No file given"
+fi
+
