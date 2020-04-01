@@ -29,8 +29,9 @@ int main(int argc, char * argv[])
             sleep(5);
             brokenChild=pid;
         }
-        /*if (WEXITSTATUS(status)!=0){
-        }*/
+        if (WEXITSTATUS(status)!=0){
+            kill(0,SIGTERM);
+        }
     }
     exit(0);
 }
